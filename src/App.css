@@ -1,0 +1,122 @@
+/* footer */
+.footerP{
+    text-align: center;
+    padding: 100px 0;
+    font-size: small;
+    font-weight: bold;
+}
+/* Item Count */
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.card{
+    width: 15rem;
+    text-align: center;
+    border-radius: 5px;
+}
+.btnMasMenos{
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 500px;
+    color: #fafafa;
+    width: 30px;
+}
+.btnMasMenos:hover{
+    background-color: #0d6efd;
+    color: #fafafa;
+}
+.spanCantidad{
+    padding: 15px;
+}
+footer, nav{
+    background-color: #f0f0f0;
+}
+.ah5 {
+    color: black;
+    text-decoration: none;
+}
+.ah5:hover {
+    color: rgb(97, 97, 97);
+}
+body {
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.imgNav {
+    padding: 0px;
+    margin: 0;
+    max-width: 60px;
+}
+.nav-item{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.fotoCart{
+    max-width: 120px;
+}
+.btn-danger{
+    padding: 1px 8px;
+}
+.card-img-top{
+    max-width: 300px;
+}
+.cartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.labelCart{
+    border: #c2c2c2 solid 1px;
+    border-radius: 100px;
+    padding: 13px 10px 10px 10px;
+}
+.labelCart:hover{
+    background-color: #82b4ff;
+    border: #ffffff solid 1px;
+}
+.carrito{
+    color: black;
+    max-width: 30px;
+    padding-right: 3px;
+}
+.inputStyle{
+    border-radius: 150px;
+}
+label{
+    font-weight: bold;
+}
+.imgDetail{
+    max-width: 300px;
+}
+.linksIcons{
+    color: #333333;
+    font-size: xx-large;
+    text-decoration: none;
+}
+.instagram:hover{
+    color: #833AB4;
+}
+.twitter:hover{
+    color: #1DA1F2;
+}
+.facebook:hover{
+    color: #3b5998;
+}
+.whatsapp:hover{
+    color: #25D366;
+}
+.ingA{
+    color: black;
+}
+.copyright{
+    font-size: small;
+}
+.footerTitle{
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: normal;
+}
