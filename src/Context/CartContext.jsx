@@ -5,46 +5,42 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = (props) =>{
     const [cart, setCart] = useState([]);
-    const [productsInCart, setProductsInCart] = useState(0);
-    const [providerLoading, setProviderLoading] = useState(true);
+    const [cartProducts, setCartProducts] = useState(0);
+    const [loading, setLoading] = useState(true);
 
-    const clearCart = () => setCart([]);
-
-    const removeItem = (id) => setCart(cart.filter(item => item.id !== id));
-
-    const isInCart = id => cart.some(item => item.id === id);
+    const clear = () => setCart([]);
+    const remove = (id) => setCart(cart.filter(item => item.id !== id));
+    const cartIn = id => cart.some(item => item.id === id);
 
     const addToCart = (item, quantity) => {
-        if(isInCart(item.id)){
-            const newCart = cart.map(cartElement => {
-                if(cartElement.id === item.id){
-                    return{...cartElement, quantity: cartElement.quantity + quantity}
-                }else return cartElement;
+        if(cartIn(item.id)){
+            const cartAdd = cart.map(el => {
+                if(el.id === item.id) {
+                    return{...el, quantity: el.quantity + quantity}
+                }
+                else return el;
             })
-            setCart(newCart);
-        }else{
+            setCart(cartAdd);
+        }
+        else
+        {
             setCart(prev => [...prev, {...item, quantity}]);
         }
     };
 
-    const realStock = product => {
-        const foundItem = cart.find(e => e.id === product.id);
-        return foundItem ? product.stock - foundItem.quantity : product.stock;
-    }
-
     useEffect(() => {
-        const localCart = localStorage.getItem('cart');
-        if (!localCart) localStorage.setItem('cart', JSON.stringify([]));
-        else setCart(JSON.parse(localCart));
-        setProviderLoading(false);
+        const storageCart = localStorage.getItem('cart');
+        if (!storageCart) localStorage.setItem('cart', JSON.stringify([]));
+        else setCart(JSON.parse(storageCart));
+        setLoading(false);
     }, []);
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
-        const inCart = cart.reduce((acc, item) => {
-            return acc + item.quantity;
+        const inCart = cart.reduce((c, item) => {
+            return c + item.quantity;
         }, 0);
-        setProductsInCart(inCart);
+        setCartProducts(inCart);
     }, [cart]);
 
 
@@ -53,12 +49,11 @@ export const CartProvider = (props) =>{
             <CartContext.Provider value={{
                 cart,
                 setCart,
-                clearCart,
+                clear,
                 addToCart,
-                realStock,
-                providerLoading,
-                productsInCart,
-                removeItem}}>
+                loading,
+                cartProducts,
+                remove}}>
                 {props.children}
             </CartContext.Provider>
         </>

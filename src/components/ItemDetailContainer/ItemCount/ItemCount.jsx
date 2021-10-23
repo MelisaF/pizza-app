@@ -1,17 +1,17 @@
 import {useState} from "react"
 import Button from 'react-bootstrap/Button';
 
-const ItemCount = ({stock, initial, paramOnAdd}) => {
+export const ItemCount = ({stock, initial, onAdd}) => {
 
     const [counter,setCounter] = useState(initial);
     
-    const handleSumar = () => {
+    const sumar = () => {
         if (counter === stock){
             return;
         }
         setCounter(counter + 1);
     }
-    const handleRestar = () => {
+    const restar = () => {
         if (counter === 1){
             return;
         }
@@ -22,14 +22,12 @@ const ItemCount = ({stock, initial, paramOnAdd}) => {
         <>
         <div>
             <div className="d-flex justify-content-center m-3 align-items-center">
-                <Button className="btnMasMenos" onClick={handleRestar}>-</Button> 
+                <Button onClick={restar}>-</Button> 
                 <p className="m-2">{counter}</p> 
-                <Button className="btnMasMenos" onClick={handleSumar}>+</Button> <br />
+                <Button onClick={sumar}>+</Button>
             </div>    
-            <Button variant="primary" onClick={()=>paramOnAdd(counter)}>Agregar al carrito</Button>
+            <Button variant="primary" onClick={()=>onAdd(counter)}>AGREGAR AL CARRITO</Button>
         </div>
         </>
     )
 }
-
-export default ItemCount;

@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import '../../estilos.css'
 
-const Item = ({description,name,unitPrice,id,pictureUrl}) => {
+
+export const Item = ({img, description, title, id}) => {
     return (
-        <>
-            <div className="card m-2">
-                <Link to={`/product/${id}`}><img src={pictureUrl} className="card-img-top" alt="product"/></Link>
-                <div className="card-body text-uppercase">
-                    <Link to={`/product/${id}`} className="ah5"><h5 className="card-title"><b>{name}</b></h5></Link>
-                    <p className="card-text">{description} U$S {unitPrice}</p>
-                    <Link to={`/product/${id}`}><Button variant="btn btn-primary">Ver Detalle</Button></Link>
+            <div className="card-group m-3" style={{width: "18rem"}}>
+                <img src={img} className="card-img-top" alt={description}/>
+                <div className="card-body">
+                    <h5 className="card-title">{title}</h5>
+                    <Link to={`/product/${id}`} className="btn btn-primary">DETALLE DEL PRODUCTO</Link>
                 </div>
-            </div> 
-        </>
+            </div>
     )
 }
-export default Item;

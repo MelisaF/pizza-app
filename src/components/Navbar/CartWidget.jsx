@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import {GiShoppingCart} from 'react-icons/gi';
+import '../../estilos.css'
 
-const CartWidget = ({cart}) => {
+export const CartWidget = ({cart}) => {
     return (
-        <>
-        <div className="cartContainer">
-            <Link to="/Cart"><img className="carrito" src="/img/carritoo.png" alt="carrito" /></Link>
+        <div className="cart-icon">
+            <Link to="/cart"><GiShoppingCart className="icon-color"/></Link>
             <span>{cart}</span>
         </div>
-        </>
     )
 }
-
-export default CartWidget;

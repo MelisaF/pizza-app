@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import { firestore } from "../../firebase/firebase"
+import {ItemDetail} from "./ItemDetail";
+import { firestore } from "../../Firebase/Firebase"
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
     const [productos, setProductos] = useState([])
     const {id} = useParams()
     
@@ -17,29 +17,28 @@ const ItemDetailContainer = () => {
                     id: doc.id,
                     ...doc.data()
                 }));
-                // eslint-disable-next-line eqeqeq
                 setProductos(data.find(res => res.id == id))                
             })
-            .catch(err => console.log(err))
+            .catch(err => 
+                console.log(err))
+
         },[id]); 
         
         if(productos.length === 0){
         return (
-            <div className="text-center m-5">
-                <div className="spinner-grow" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: "75%"}}></div>
             </div>
-        )       
-        }else{
+        )}
+        else{
             return(
             <div>
                 <ItemDetail producto={productos}/>
             </div>
             )
         } 
-    }                
-export default ItemDetailContainer
+}                
+
 
 
 

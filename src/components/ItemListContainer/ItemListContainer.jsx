@@ -1,60 +1,53 @@
-import React from 'react';
-import ItemList from './ItemList';
-import { firestore } from './../../firebase/firebase';
+import {ItemList} from './ItemList';
+import { firestore } from './../../Firebase/Firebase';
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
+import '../../estilos.css'
 
-const ItemListContainer = () => {
-  const [productos,setProductos] = useState([])
-  const {id} = useParams()
+export const ItemListContainer = () => {
+    const [productos,setProductos] = useState([])
+    const {id} = useParams()
 
-  useEffect(()=>
+    useEffect(()=>
     {
         const db = firestore
         const coleccion = db.collection("productos")
         let consulta
         if (!id) consulta = coleccion.get()
-        if (id === "1") consulta = coleccion.where("categoryId", "==", "1").get()
-        if (id === "2") consulta = coleccion.where("categoryId", "==", "2").get()
+        if (id === "1") consulta = coleccion.where("category", "==", "PIZZA").get()
+        if (id === "2") consulta = coleccion.where("category", "==", "EMPANADA").get()
 
         consulta
             .then(res => {
                 const documento = res.docs
-                let misProductos = []
+                let productos = []
 
                 documento.forEach(producto => {
-                    const consultaFinal = {
+                    const finishConsult = {
                         id: producto.id,
                         ...producto.data()
                     }
-                    misProductos.push(consultaFinal)
+                    productos.push(finishConsult)
                 })
-                setProductos(misProductos)
+                setProductos(productos)
             })
-            .catch(err => console.log(err))
-    }, [id])
+            .catch(err => 
+                console.log(err))
+
+        }, [id])
 
     if(productos.length === 0){
         return (
-            <div className="text-center m-5">
-                <Spinner className="m-3" animation="grow" size="sm" />
-                <Spinner className="m-3" animation="grow" />
-                <Spinner className="m-3" animation="grow" size="sm" />
-                <Spinner className="m-3" animation="grow" />
-                <Spinner className="m-3" animation="grow" size="sm" />
-                <Spinner className="m-3" animation="grow" />
-                <Spinner className="m-3" animation="grow" size="sm" />
-                <Spinner className="m-3" animation="grow" />
-                <Spinner className="m-3" animation="grow" size="sm" />
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: "75%"}}></div>
             </div>
         )       
-    }else{
+    } 
+    else{
         return(
-        <div className="container">
-            <ItemList productos={productos} />
-        </div>
+            <div className="item-container">
+                <ItemList productos={productos} />
+            </div>
         )
     }    
 }
-export default ItemListContainer;
