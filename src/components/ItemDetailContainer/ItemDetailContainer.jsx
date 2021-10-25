@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
                     id: doc.id,
                     ...doc.data()
                 }));
-                setProductos(data.find(res => res.id == id))                
+                setProductos(data.find(res => res.id === id))                
             })
             .catch(err => 
                 console.log(err))

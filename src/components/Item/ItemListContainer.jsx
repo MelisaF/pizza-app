@@ -1,7 +1,7 @@
-import {ItemList} from './ItemList';
 import { firestore } from './../../Firebase/Firebase';
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {ItemList} from '../Item/ItemList';
 import '../../estilos.css'
 
 export const ItemListContainer = () => {
