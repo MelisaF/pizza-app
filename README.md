@@ -33,7 +33,7 @@ Estos son los pasos a seguir:
 # FUNCIONALIDAD DEL PROYECTO
 En la carpeta src se encuentra el archivo principal App.jsx donde está el componenete AppRoutes, éste es el encargado de llamar a cada una de las rutas del proyecto mediante el uso de react-router-dom.
 Dentro de src cree una carpeta Components, separando cada uno de ellos, por funcionalidad, como hemos visto a lo largo del curso.
-Carpeta Home: Aquí se observa la página de inicio, dando una pequeña demostración de lo que trata el e-commerce. En esta sección se puede navegar a las diferentes categorías de productos que se ofrecen.
+En la carpeta Home se observa la página de inicio, dando una pequeña demostración de lo que trata el e-commerce. En esta sección se puede navegar a las diferentes categorías de productos que se ofrecen.
 En componente Navbar también permite navegar entre las diferentes secciones, evitando el refresco de la página.
 A partir de ahí se podrá visualizar cada uno de los productos con una pequeña descripción, dando la opción de ver detalles. Esto se realiza mediante el componente ItemListContainer, que luego le da la funcionalidad a ItemList e Item.
 Se podrá agregar cantidades, gracias al componente ItemCount.
