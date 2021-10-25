@@ -43,3 +43,5 @@ En el componente Cart, al finalizar la compra, aparecerá un formulario, donde s
 El último componente es el Footer, sin funcionalidad alguna, sólo fue creado para darle un estilo más a mi proyecto.
 
 # VIDEO DESCRIPTIVO
+
+https://drive.google.com/file/d/1LOAV9kiQ4Gh8s3RADUvrGRb51DolSSnB/view?usp=sharing
