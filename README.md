@@ -28,7 +28,8 @@ Estos son los pasos a seguir:
 * Clonar y descargar el proyecto desde GitHub
 * Abrirlo en tu editor de código
 * Abrir la terminal
-* Generar el comando npm install
+* Generar el comando npm install create-app
+* Por último el comando npm start
 
 # FUNCIONALIDAD DEL PROYECTO
 En la carpeta src se encuentra el archivo principal App.jsx donde está el componenete AppRoutes, éste es el encargado de llamar a cada una de las rutas del proyecto mediante el uso de react-router-dom.
