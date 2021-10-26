@@ -13,13 +13,13 @@ Con el objetivo de:
 * Completarás un formulario, con tus datos, generando una orden de compra.
 
 # DEPENDENCIAS
-*bootstrap
-*bootswatch
-*react-bootstrap
-*firebase
-*react-router-dom
-*react-hook-form
-*react-icons
+* bootstrap
+* bootswatch
+* react-bootstrap
+* firebase
+* react-router-dom
+* react-hook-form
+* react-icons
     
 # INSTALACION
 Estos son los pasos a seguir:
